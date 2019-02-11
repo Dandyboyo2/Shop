@@ -4,6 +4,10 @@ object Shop extends App{
   val loaf = new Bread(name = "Bread", code = "003", normalPrice = 1.00)
   val bun = new Bread(name = "Bun", code = "004", normalPrice = 0.50)
 
-  val test = new CashRegister(currentTotal = 0.00, offers = List())
+  def allTen(item : StockItem) : Double = {
+    item.normalPrice * 0.9
+  }
+
+  val test = new CashRegister(currentTotal = 0.00, offers = List(allTen))
   println(test.scan(orange).scan(apple).scan(loaf).scan(bun).currentTotal)
 }
